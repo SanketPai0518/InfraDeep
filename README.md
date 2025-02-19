@@ -23,44 +23,51 @@ InfraDeep is an advanced AI-powered vision system that leverages **thermal imagi
 ## **📁 Project Structure**
 ```
 InfraDeep/
-│── data/                     # Datasets (thermal, underwater images)
-│   ├── raw/                  # Unprocessed data
-│   ├── processed/            # Preprocessed data
-│── models/                   # Saved trained models
-│── notebooks/                # Jupyter notebooks for experiments
-│── src/                      # Core source code
-│   ├── __init__.py           # Package initializer
-│   ├── components/           # Core ML pipeline components
-│   │   ├── __init__.py
-│   │   ├── data_ingestion.py # Fetch & preprocess data
-│   │   ├── data_validation.py # Validate dataset integrity
-│   │   ├── data_transformation.py # Feature engineering
-│   │   ├── model_trainer.py  # Train YOLOv8 model
-│   │   ├── model_evaluation.py # Evaluate model performance
-│   │   ├── model_pusher.py   # Deploy model to cloud/edge
-│   ├── pipelines/            # End-to-end ML workflows
-│   │   ├── training_pipeline.py
-│   │   ├── inference_pipeline.py
-│   ├── services/             # API & streaming services
-│   │   ├── __init__.py
-│   │   ├── camera_stream.py  # Live camera feed processing
-│   │   ├── api_service.py    # FastAPI-based inference service
-│   ├── utils/                # Helper functions
-│   │   ├── __init__.py
-│   │   ├── main_utils.py
-│   ├── config/               # Config files for easy parameter tuning
-│   │   ├── config.yaml
-│   │   ├── schema.yaml
-│── tests/                    # Unit & integration tests
-│── config.yaml               # Global configuration
-│── requirements.txt          # Dependencies
-│── README.md                 # Project documentation
-│── Dockerfile                # Containerization for deployment
-│── app.py                    # FastAPI-based inference server
-│── setup.py                  # Installation script
-│── pyproject.toml            # Modern Python project metadata
-│── .dockerignore             # Files to exclude from Docker builds
-│── demo.py                   # Quick demo script
+│── data/                   # Data pipeline
+│   ├── __init__.py
+│   ├── ingestion.py        # Data ingestion script
+│   ├── transformation.py   # Data transformation logic
+│   ├── validation.py       # Data validation steps
+│   ├── thermal/            # Thermal image datasets
+│   ├── underwater/         # Underwater image datasets
+│
+│── models/                 # Model pipeline
+│   ├── __init__.py
+│   ├── trainer.py          # Model training script
+│   ├── evaluation.py       # Model evaluation logic
+│   ├── registry.py         # Stores trained models
+│
+│── mlflow_logs/            # MLflow tracking
+│   ├── __init__.py
+│   ├── tracking.py         # Handles experiment logging
+│
+│── notebooks/              # Jupyter notebooks for experiments
+│   ├── __init__.py
+│
+│── src/                    # Core source code
+│   ├── __init__.py
+│   ├── train.py            # Training script for YOLOv8
+│   ├── inference.py        # Model inference script
+│   ├── preprocess.py       # Preprocessing thermal/underwater images
+│   ├── camera_stream.py    # Live camera feed processing
+│   ├── utils.py            # Helper functions
+│
+│── pipeline/               # ML pipeline orchestration
+│   ├── __init__.py
+│   ├── training_pipeline.py # End-to-end training pipeline
+│   ├── prediction_pipeline.py # Inference pipeline
+│
+│── tests/                  # Unit tests
+│   ├── __init__.py
+│   ├── test_train.py       # Unit tests for training
+│   ├── test_inference.py   # Unit tests for inference
+│
+│── config.yaml             # Configuration file
+│── requirements.txt        # Dependencies
+│── README.md               # Project documentation
+│── Dockerfile              # Containerization for deployment
+│── app.py                  # FastAPI-based inference server
+│── setup.py                # Installation script
 
 ---
 
