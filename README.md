@@ -23,51 +23,54 @@ InfraDeep is an advanced AI-powered vision system that leverages **thermal imagi
 ## **📁 Project Structure**
 ```
 InfraDeep/
-│── data/                   # Data pipeline
-│   ├── __init__.py
-│   ├── ingestion.py        # Data ingestion script
-│   ├── transformation.py   # Data transformation logic
-│   ├── validation.py       # Data validation steps
-│   ├── thermal/            # Thermal image datasets
-│   ├── underwater/         # Underwater image datasets
+│── components/                  # Core ML pipeline components
+│   ├── data_ingestion.py        # Data ingestion logic
+│   ├── data_validation.py       # Validate input data
+│   ├── data_transformation.py   # Transform data for modeling
+│   ├── model_trainer.py         # Train the ML model
+│   ├── model_evaluation.py      # Evaluate trained models
+│   ├── model_pusher.py          # Deploy the trained model
 │
-│── models/                 # Model pipeline
-│   ├── __init__.py
-│   ├── trainer.py          # Model training script
-│   ├── evaluation.py       # Model evaluation logic
-│   ├── registry.py         # Stores trained models
+│── configuration/               # Configuration management
+│   ├── mongo_db_connection.py   # MongoDB connection settings
 │
-│── mlflow_logs/            # MLflow tracking
-│   ├── __init__.py
-│   ├── tracking.py         # Handles experiment logging
+│── cloud_storage/               # Cloud storage utilities
+│   ├── aws_storage.py           # AWS S3 storage management
 │
-│── notebooks/              # Jupyter notebooks for experiments
-│   ├── __init__.py
+│── data_access/                 # Data access layer
+│   ├── project_data.py          # Manage datasets
 │
-│── src/                    # Core source code
-│   ├── __init__.py
-│   ├── train.py            # Training script for YOLOv8
-│   ├── inference.py        # Model inference script
-│   ├── preprocess.py       # Preprocessing thermal/underwater images
-│   ├── camera_stream.py    # Live camera feed processing
-│   ├── utils.py            # Helper functions
+│── entity/                      # Entity definitions
+│   ├── config_entity.py         # Config schema definitions
+│   ├── artifact_entity.py       # Data artifact tracking
+│   ├── estimator.py             # Model estimation logic
+│   ├── s3_estimator.py          # S3-based model management
 │
-│── pipeline/               # ML pipeline orchestration
-│   ├── __init__.py
-│   ├── training_pipeline.py # End-to-end training pipeline
-│   ├── prediction_pipeline.py # Inference pipeline
+│── exception/                   # Custom exception handling
 │
-│── tests/                  # Unit tests
-│   ├── __init__.py
-│   ├── test_train.py       # Unit tests for training
-│   ├── test_inference.py   # Unit tests for inference
+│── logger/                      # Logging setup
 │
-│── config.yaml             # Configuration file
-│── requirements.txt        # Dependencies
-│── README.md               # Project documentation
-│── Dockerfile              # Containerization for deployment
-│── app.py                  # FastAPI-based inference server
-│── setup.py                # Installation script
+│── mlflow_logs/                 # MLflow tracking
+│   ├── tracking.py              # MLflow experiment tracking
+│
+│── pipeline/                    # ML pipelines
+│   ├── training_pipeline.py     # Model training pipeline
+│   ├── prediction_pipeline.py   # Model inference pipeline
+│
+│── utils/                       # Utility scripts
+│   ├── main_utils.py            # Helper functions
+│
+│── config/                      # Configuration files
+│   ├── model.yaml               # Model parameters
+│   ├── schema.yaml              # Data schema
+│
+│── app.py                       # FastAPI-based inference server
+│── requirements.txt              # Dependencies
+│── Dockerfile                    # Containerization setup
+│── .dockerignore                 # Docker ignore files
+│── demo.py                        # Sample script
+│── setup.py                       # Installation script
+│── pyproject.toml                 # Modern package management
 
 ---
 
